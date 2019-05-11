@@ -26,19 +26,20 @@ namespace SuperBot.Dialogs
 
         private async Task<DialogTurnResult> Conversation(WaterfallStepContext stepContext, CancellationToken cancellationToken)
         {
-            var result = stepContext.Options as string;
+           var result = stepContext.Options as string;
             if (string.IsNullOrEmpty(result))
             {
-                await stepContext.Context.SendActivityAsync(MessageFactory.Text("§Ú¬İ¤£À´°Õ!"));
+                await stepContext.Context.SendActivityAsync(MessageFactory.Text("æˆ‘çœ‹ä¸æ‡‚å•¦!"));
                 return await stepContext.EndDialogAsync(null, cancellationToken);
 
             }
 
-            result = result.Replace("§A", "");
-            result = result.Replace("©p", "");
-            result = result.Replace("§Ú", "");
-            result = result.Replace("¶Ü", "");
+            result = result.Replace("ä½ ", "");
+            result = result.Replace("å¦³", "");
+            result = result.Replace("æˆ‘", "");
+            result = result.Replace("å—", "");
             result = result.Replace("?", "!");
+            result = result.Replace("ï¼Ÿ", "!");
 
             await stepContext.Context.SendActivityAsync(MessageFactory.Text(result));
 
